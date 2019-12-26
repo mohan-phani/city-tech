@@ -15,7 +15,7 @@
 		<username>apisero-connector-3</username>
 		<password>Apisero@123</password>
 		<app.runtime>4.2.1</app.runtime>
-		<cloudhub.application.name>maven-deploy-mock</cloudhub.application.name>
+		<cloudhub.application.name>city-tech-mock</cloudhub.application.name>
 		<mule.maven.plugin.version>3.3.5</mule.maven.plugin.version>
 		<environment>Sandbox</environment>
 	<munit.version>2.1.5</munit.version>
