@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:munit="http://www.mulesoft.org/schema/mule/munit" xmlns:munit-tools="http://www.mulesoft.org/schema/mule/munit-tools"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xsi:schemaLocation="
+		http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+		http://www.mulesoft.org/schema/mule/munit http://www.mulesoft.org/schema/mule/munit/current/mule-munit.xsd
+		http://www.mulesoft.org/schema/mule/munit-tools  http://www.mulesoft.org/schema/mule/munit-tools/current/mule-munit-tools.xsd">
+	<munit:config name="city-tech-test-suite.xml" />
+	<munit:test name="city-tech-test-suite-city-techFlowTest" description="Test" doc:id="632f1c30-7fe3-42a5-99d6-882b9a04c638" >
+		<munit:behavior >
+			<munit-tools:mock-when doc:name="Mock when" doc:id="a527b4cf-43d0-4282-9675-38ebb7d587fc" processor="http:request">
+				<munit-tools:with-attributes >
+					<munit-tools:with-attribute whereValue="3c3cee8c-ebae-4e09-9e17-b061b7f70a43" attributeName="doc:id" />
+				</munit-tools:with-attributes>
+				<munit-tools:then-return >
+					<munit-tools:payload value='#[readUrl("classpath://post_200_v1_retrieve_application_json.json","application/json")]' mediaType="application/java" />
+				</munit-tools:then-return>
+			</munit-tools:mock-when>
+		</munit:behavior>
+		<munit:execution >
+			<flow-ref doc:name="Flow-ref to city-techFlow" doc:id="0ef95473-8d19-41d3-b037-7fe19d8054d0" name="city-techFlow"/>
+		</munit:execution>
+		<munit:validation>
+			<munit-tools:assert-that doc:name="Assert that" doc:id="ec869191-f2c2-44f0-a95b-646dcf9b1c09" is='#[MunitTools::equalTo("IST")]' expression="#[payload.abbreviation]"/>
+		</munit:validation>
+	</munit:test>
+
+
+</mule>

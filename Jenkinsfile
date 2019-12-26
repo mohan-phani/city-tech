@@ -8,6 +8,12 @@ pipeline
 				bat 'mvn clean install -DskipTests'
 			}
 		}
+		stage('Munit Test Run'){
+			steps{
+				bat 'mvn clean verify'
+			}
+			
+		}
 		stage('Deploy Application To Mulesoft'){
 			steps{
 				bat 'mvn package deploy -DmuleDeploy'
