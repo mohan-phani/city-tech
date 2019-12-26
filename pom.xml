@@ -12,13 +12,12 @@
 	<properties> 
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<username>self_study</username>
-		<password>Thatwhat@321</password>
+		<username>apisero-connector-3</username>
+		<password>Apisero@123</password>
 		<app.runtime>4.2.1</app.runtime>
 		<cloudhub.application.name>maven-deploy-mock</cloudhub.application.name>
 		<mule.maven.plugin.version>3.3.5</mule.maven.plugin.version>
 		<environment>Sandbox</environment>
-		<http.port>8081</http.port>
 	<munit.version>2.1.5</munit.version>
     </properties>
 
@@ -46,9 +45,6 @@
 						<password>${password}</password>
 						<applicationName>${cloudhub.application.name}</applicationName>
 						<environment>${environment}</environment>
-						<properties>
-							 <http.port>${http.port}</http.port>
-						</properties>
 						<workers>1</workers>
 						<workerType>MICRO</workerType>
 					</cloudHubDeployment>
